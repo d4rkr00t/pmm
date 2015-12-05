@@ -1,10 +1,9 @@
 {
   "name": "pmm",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Better npm publish",
   "bin": "pmm.sh",
   "files": [
-    "pmm.js",
     "pmm.sh"
   ],
   "keywords": [
@@ -15,29 +14,14 @@
     "type": "git",
     "url": "https://github.com/d4rkr00t/pmm"
   },
-  "scripts": {
-    "audit": "nsp check package",
-    "build": "babel -d ./ ./src",
-    "check": "npm run audit && npm outdated --depth 0",
-    "lint": "eslint pmm.js",
-    "validate": "npm run lint",
-    "prepare": "npm run validate && npm run check && npm run build",
-    "pp": "npm run prepare"
-  },
   "author": {
     "name": "Stanislav Sysoev",
     "email": "d4rkr00t@gmail.com",
     "url": "https://github.com/d4rkr00t"
   },
-  "pre-commit": [
-    "validate"
-  ],
   "dependencies": {},
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.4",
-    "eslint": "^1.10.1",
-    "nsp": "^2.0.0",
-    "pre-commit": "^1.1.2"
+    "cz-conventional-changelog": "^1.1.4"
   },
   "config": {
     "commitizen": {

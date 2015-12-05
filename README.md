@@ -11,19 +11,27 @@ Better npm publish
 
 
 ## Features
-// TODO
+* Ensures the working directory is clean and that there are no unpulled changes
+* Runs your checks before publishing via npm scripts
+* Bumps the package version and creates git tag
+* Publishes new version to npm
+* Pushes commits and tags to GitHub
 
 ## Install
 
 ```sh
-npm install pmm
+npm install -g pmm
 ```
 
 ## Usage
 
 ```sh
-// TODO
+pmm [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease]
+# default: patch
 ```
+
+If you define **"prepare"** script in **package.json** it will be run before every publish.
+Also you can use **prepublish** or **preversion** npm scripts to run checks before publishing.
 
 ## Author
 
