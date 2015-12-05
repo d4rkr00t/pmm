@@ -8,9 +8,9 @@ color_success="\033[1;32m"
 function runPrepare() {
     if grep -q "\"prepare\":\?\s\"" "package.json"; then
         npm run prepare
+    else
+        echo "${color_skiped}[Skiped] ${color_reset} There is no prepare script in package.json." >&2;
     fi
-
-    echo "${color_skiped}[Skiped] ${color_reset} There is no prepare script in package.json." >&2;
 }
 
 function gitChecks() {
