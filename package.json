@@ -1,13 +1,22 @@
 {
   "name": "pmm",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Better npm publish",
   "bin": "pmm.sh",
   "files": [
     "pmm.sh"
   ],
   "keywords": [
-    "cli","npm","publish","release","version","bump","automatisation","git","push","tags"
+    "cli",
+    "npm",
+    "publish",
+    "release",
+    "version",
+    "bump",
+    "automatisation",
+    "git",
+    "push",
+    "tags"
   ],
   "license": "MIT",
   "repository": {
