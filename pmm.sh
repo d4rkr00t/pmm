@@ -2,7 +2,7 @@
 color_reset="\033[m"
 color_error="\033[1;31m"
 color_process="\033[0;34m"
-color_skiped="\033[1;33m"
+color_skiped="\033[1;37m"
 color_success="\033[0;32m"
 color_info="\033[0;35m"
 
