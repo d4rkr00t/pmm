@@ -14,6 +14,10 @@ Better npm publish
 * Bumps the package version and creates git tag
 * Publishes new version to npm
 * Pushes commits and tags to GitHub
+* Confirm before publishing
+* Verbose release info after publishing
+
+![publish my module](https://cloud.githubusercontent.com/assets/200119/12373470/2def0ec8-bc8b-11e5-88c9-b6006c8b8848.png)
 
 ## Install
 
@@ -24,12 +28,15 @@ npm install -g pmm
 ## Usage
 
 ```sh
-pmm [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease]
-# default: patch
+pmm [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease] [<npmtag>]
+# default version: patch
+# default npm tag: latest
 ```
 
-If you define **"prepare"** script in **package.json** it will be run before every publish.
-Also you can use **prepublish** or **preversion** npm scripts to run checks before publishing.
+If you define **"prepare"** script in **package.json** it will be run before every publish. Also you can use **prepublish** or **preversion** npm scripts to run checks before publishing.
+
+* Read more about [npm tags](https://docs.npmjs.com/cli/tag).
+* Read more about [npm verisons](https://docs.npmjs.com/cli/version).
 
 ## Author
 
