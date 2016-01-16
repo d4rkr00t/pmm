@@ -43,10 +43,17 @@ function confirm() {
 }
 
 function releaseInfo() {
-  echo " ${color_info}Version:${color_reset}       " $(__jsonval package.json version)
-  echo " ${color_info}Latest commit:${color_reset} " $(git log -1 --oneline)
-  echo " ${color_info}Publish tag:${color_reset}   " $TAG
-  echo " ${color_info}Publisher:${color_reset}     " $(npm whoami --silent)
+  lastTag=$(git tag | tail -r | head -1)
+  prevTag=$(git tag | tail -r -2 | tail -1)
+
+  echo " ${color_info}Version:${color_reset}            " $(__jsonval package.json version)
+  echo " ${color_info}Version commit:${color_reset}     " $(git log -1 --oneline)
+  echo " ${color_info}Last commit:${color_reset}        " $(git log -2 --oneline --reverse | head -1)
+  if [[ ! -z "$lastTag" && ! -z "$prevTag" ]]; then
+  echo " ${color_info}Commits in version:${color_reset} " $(git rev-list $prevTag..$lastTag --count)
+  fi
+  echo " ${color_info}NPM tag:${color_reset}            " $TAG
+  echo " ${color_info}Publisher:${color_reset}          " $(npm whoami --silent)
 }
 
 function runPrepare() {
