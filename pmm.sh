@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+
+# Colors
 color_reset="\033[m"
 color_error="\033[1;31m"
 color_process="\033[0;34m"
@@ -6,13 +8,16 @@ color_skiped="\033[1;37m"
 color_success="\033[0;32m"
 color_info="\033[0;35m"
 
-# Default tag
+# NPM tag
 TAG=${2:-latest}
 
+# NPM version
+VERSION=${1:-patch}
+
 function __jsonval() {
-  KEY=$2
+  key=$2
   num=$3
-  cat $1 | awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/\042'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
+  cat $1 | awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/\042'$key'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
 }
 
 function header() {
@@ -29,7 +34,7 @@ function header() {
 }
 
 function confirm() {
-  read -p $'\e[35mAre you sure you want to publish new version to npm?\e[0m (y/n) ' -n 1 -r
+  read -p $'\e[35mAre you sure you want to publish new \e[32m'"[$VERSION]"$'\e[35m version to npm?\e[0m (y/n) ' -n 1 -r
   echo && echo    # (optional) move to a new line
   if [[ ! $REPLY =~ ^[Yy]$ ]]
   then
@@ -74,6 +79,7 @@ function gitChecks() {
 # RUN Commands
 #
 #
+
 header &&
 confirm &&
 
@@ -87,7 +93,7 @@ echo "${color_process}[Running]${color_reset} NPM prepare script." &&
 runPrepare &&
 
 echo "${color_process}[Running]${color_reset} Bumping package version." &&
-npm version ${1:-patch} &&
+npm version $VERSION &&
 
 echo "${color_process}[Running]${color_reset} Publishing new package version." &&
 npm publish &&
