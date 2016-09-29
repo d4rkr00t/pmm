@@ -103,7 +103,7 @@ echo "${color_process}[Running]${color_reset} Bumping package version." &&
 npm version $VERSION &&
 
 echo "${color_process}[Running]${color_reset} Publishing new package version." &&
-npm publish &&
+npm publish --tag $TAG &&
 
 echo "${color_process}[Running]${color_reset} Pushing commits and tags to GitHub." &&
 git push --follow-tags &&
