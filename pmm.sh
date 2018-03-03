@@ -57,8 +57,8 @@ function releaseInfo() {
 }
 
 function runPrepare() {
-    if grep -q "\"prepare\":\?\s\"" "package.json"; then
-        npm run prepare
+    if grep -q "\"pmm:prepare\":\?\s\"" "package.json"; then
+        npm run pmm:prepare
     else
         echo "${color_skiped}[Skiped] ${color_reset} There is no prepare script in package.json." >&2;
     fi

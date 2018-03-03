@@ -33,7 +33,7 @@ pmm [<newversion> | major | minor | patch | premajor | preminor | prepatch | pre
 # default npm tag: latest
 ```
 
-If you define **"prepare"** script in **package.json** it will be run before every publish. Also you can use **prepublish** or **preversion** npm scripts to run checks before publishing.
+If you define **"pmm:prepare"** script in **package.json** it will be run before every publish. Also you can use **prepublish** or **preversion** npm scripts to run checks before publishing.
 
 * Read more about [npm tags](https://docs.npmjs.com/cli/tag).
 * Read more about [npm verisons](https://docs.npmjs.com/cli/version).
